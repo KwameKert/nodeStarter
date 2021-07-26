@@ -4,9 +4,58 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": " npm run build && cross-env NODE_ENV='production' node dist/index.js",
+    "test": "cross-env NODE_ENV='test' jest --detectOpenHandles --watch",
+    "dev": "cross-env NODE_ENV='dev' nodemon --exec babel-node src/index.js",
+    "staging": "cross-env NODE_ENV='staging' nodemon --exec babel-node src/index.js",
+    "build": "npm run clean && yarn run build-babel",
+    "clean": "rm -rf dist && mkdir dist && chmod -R 777 dist",
+    "build-babel": "babel src --out-dir dist",
+    "sequelize": "cross-env NODE_ENV='production' node_modules/.bin/sequelize"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "jest": {
+    "testMatch": [
+      "**/__tests__/*"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testEnvironment": "node"
+  },
+  "author": "Kwame Asante",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "axios": "^0.21.1",
+    "bcrypt-nodejs": "^0.0.3",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "express-validation": "^3.0.8",
+    "express-validator": "^6.11.1",
+    "http-status": "^1.5.0",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.14.2",
+    "@babel/plugin-transform-runtime": "^7.14.2",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/runtime": "^7.14.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.3"
+  }
 }

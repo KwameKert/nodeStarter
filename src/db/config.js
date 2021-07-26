@@ -9,23 +9,22 @@ module.exports = {
   test: {
     username: "postgres",
     password:  "kwamepass",
-    database: "test-ci-messenger",
-    host: "127.0.0.1",
+    database: "dev-ci-messenger",
+    host: "localhost",
     dialect: "postgres"
   },
   staging: {
     username: "postgres",
-    password:  "Asante=0198",
-    database: "staging-ci-messenger",
-    //host: "127.0.0.1",
-    host: "165.227.192.124",
+    password:  "kwamepass",
+    database: "dev-ci-messenger",
+    host: "localhost",
     dialect: "postgres"
   },
   production: {
     username: "postgres",
-    password:  "A$@nte=0198",
-    database: "production-ci-messenger",
-    host: "142.93.57.146",
+    password:  "kwamepass",
+    database: "dev-ci-messenger",
+    host: "localhost",
     dialect: "postgres"
   }
 }
