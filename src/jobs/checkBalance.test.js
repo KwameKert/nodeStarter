@@ -5,9 +5,9 @@ import HTTPStatus from 'http-status';
 describe('Check Configuration balance  ', () => {
     test('should return credit and amount', async () => {
         await CheckBalance.checkBalance();
-     //  returnExpectations(res, HTTPStatus.CREATED);
-     
-      });
+        //  returnExpectations(res, HTTPStatus.CREATED);
+
+    });
 
 
 });
